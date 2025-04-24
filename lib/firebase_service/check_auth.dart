@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/auth_screen/log_in_screen.dart';
 import 'package:shop_app/screens/auth_screen/sign_up_screen.dart';
+import 'package:shop_app/screens/home_screen/home.dart';
 import 'package:shop_app/screens/qr_screen.dart';
 
 class SplashService {
@@ -11,7 +13,7 @@ class SplashService {
 
       if (user != null) {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => const QRViewExample()));
+            context, MaterialPageRoute(builder: (_) => const LoginScreen()));
       } else {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (_) => const SignUpScreen()));

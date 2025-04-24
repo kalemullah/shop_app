@@ -36,6 +36,7 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 import 'package:shop_app/screens/data_screen/data_screen.dart';
 
@@ -119,8 +120,7 @@ class _QRViewExampleState extends State<QRViewExample> {
                   //     )
                   //   ],
                   // ),
-                  
-                  
+
                   // Row(
                   //   mainAxisAlignment: MainAxisAlignment.center,
                   //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -147,11 +147,14 @@ class _QRViewExampleState extends State<QRViewExample> {
                   //     )
                   //   ],
                   // ),
-               
+                  Center(
+                    child: Lottie.asset('assets/scanner1.json',
+                        width: 100, height: 100, fit: BoxFit.fill),
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
