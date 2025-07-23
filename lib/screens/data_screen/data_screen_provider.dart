@@ -9,6 +9,10 @@ class DataScreenProvider extends ChangeNotifier {
   File? image;
   TextEditingController nameController = TextEditingController();
 
+  // ✅ Store scanned QR codes
+  List<String> scannedQrCodes = [];
+
+  /// Pick image from camera
   Future<void> pickImage() async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.camera);
@@ -18,6 +22,12 @@ class DataScreenProvider extends ChangeNotifier {
     }
   }
 
+  /// Check if QR is already scanned
+  bool isQrAlreadyScanned(String qrCode) {
+    return scannedQrCodes.contains(qrCode);
+  }
+
+  /// Add product to Firestore
   Future<void> addData(String qr, BuildContext context) async {
     isloading = true;
     notifyListeners();
@@ -28,12 +38,14 @@ class DataScreenProvider extends ChangeNotifier {
         throw Exception("Name, Image, and QR must not be empty");
       }
 
+      // Upload image to Firebase Storage
       String fileName = 'products/${DateTime.now().millisecondsSinceEpoch}.jpg';
       UploadTask uploadTask =
           FirebaseStorage.instance.ref(fileName).putFile(image!);
       TaskSnapshot snapshot = await uploadTask;
       String imageUrl = await snapshot.ref.getDownloadURL();
 
+      // Prepare data
       Map<String, dynamic> productData = {
         'name': name,
         'qr': qr,
@@ -41,10 +53,15 @@ class DataScreenProvider extends ChangeNotifier {
         'createdAt': FieldValue.serverTimestamp(),
       };
 
+      // Save to Firestore
       await FirebaseFirestore.instance
           .collection('shopProduct')
           .add(productData);
 
+      // ✅ After saving, store this QR code in history
+      scannedQrCodes.add(qr);
+
+      // Clear input
       nameController.clear();
       image = null;
 

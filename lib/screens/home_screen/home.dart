@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:shop_app/screens/auth_screen/log_in_screen.dart';
+import 'package:shop_app/history_screen/history_screen.dart';
 import 'package:shop_app/screens/qr_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -140,8 +141,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     FadeInUp(
                       duration: Duration(milliseconds: 1000),
                       child: ElevatedButton.icon(
-                        icon: Icon(Icons.document_scanner, size: 28),
-                        label: Text("Bar Code Scanner",
+                        icon: Icon(Icons.history_edu, size: 28),
+                        label: Text("History",
                             style: GoogleFonts.poppins(fontSize: 18)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.purpleAccent,
@@ -152,6 +153,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               borderRadius: BorderRadius.circular(20)),
                         ),
                         onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HistoryScreen(),
+                              ));
                           // Navigate to Barcode Scanner
                         },
                       ),
