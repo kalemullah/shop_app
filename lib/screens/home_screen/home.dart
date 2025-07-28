@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Colors.deepPurple.shade50,
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xFFFFB91D),
         elevation: 0,
         title: Row(
           children: [
@@ -120,8 +120,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         label: Text("QR Code Scanner",
                             style: GoogleFonts.poppins(fontSize: 18)),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepPurple,
-                          foregroundColor: Colors.white,
+                          backgroundColor: const Color(0xFFFFB91D),
+                          foregroundColor: const Color(0xFFFFB91D),
                           padding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 30),
                           shape: RoundedRectangleBorder(
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         label: Text("History",
                             style: GoogleFonts.poppins(fontSize: 18)),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.purpleAccent,
+                          backgroundColor: const Color(0xFFFFB91D),
                           foregroundColor: Colors.white,
                           padding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 30),

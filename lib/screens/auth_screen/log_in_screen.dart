@@ -48,80 +48,84 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: const Color(0xFFFFB91D),
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: const Text(
+          'Sign In',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.transparent, // Transparent app bar
+        backgroundColor: const Color(0xFFFFB91D), // Transparent app bar
         elevation: 0,
       ),
       body: Stack(
         children: [
           // Background gradient with multiple icons
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.teal.shade300, // First color (teal)
-                  Colors.purple.shade600, // Second color (purple)
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-            child: Stack(
-              children: [
-                // Add multiple printer icons in the background
-                Positioned(
-                  top: 50,
-                  left: 30,
-                  child: Opacity(
-                    opacity: 0.1, // Make icons subtle
-                    child: Icon(
-                      Icons.print,
-                      size: 100,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 150,
-                  left: 100,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 120,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 100,
-                  right: 50,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 100,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 200,
-                  left: 80,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 110,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     gradient: LinearGradient(
+          //       colors: [
+          //         const Color(0xFFFFB91D), // First color (teal)
+          //        const Color(0xFFFFB91D) // Second color (purple)
+          //       ],
+          //       begin: Alignment.topLeft,
+          //       end: Alignment.bottomRight,
+          //     ),
+          //   ),
+          //   child: Stack(
+          //     children: [
+          //       // Add multiple printer icons in the background
+          //       Positioned(
+          //         top: 50,
+          //         left: 30,
+          //         child: Opacity(
+          //           opacity: 0.1, // Make icons subtle
+          //           child: Icon(
+          //             Icons.print,
+          //             size: 100,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //       Positioned(
+          //         top: 150,
+          //         left: 100,
+          //         child: Opacity(
+          //           opacity: 0.1,
+          //           child: Icon(
+          //             Icons.print,
+          //             size: 120,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //       Positioned(
+          //         bottom: 100,
+          //         right: 50,
+          //         child: Opacity(
+          //           opacity: 0.1,
+          //           child: Icon(
+          //             Icons.print,
+          //             size: 100,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //       Positioned(
+          //         bottom: 200,
+          //         left: 80,
+          //         child: Opacity(
+          //           opacity: 0.1,
+          //           child: Icon(
+          //             Icons.print,
+          //             size: 110,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           // Main content (Form fields, buttons, etc.)
           Padding(
             padding: const EdgeInsets.all(18.0),
@@ -147,50 +151,59 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: 30.h),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter your email';
-                      }
-                      return null;
-                    },
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                      hintText: 'Enter your email',
-                      hintStyle:
-                          TextStyle(color: Colors.black.withOpacity(0.7)),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: Colors.teal, width: 2),
+                  Container(
+                    color: Colors.white,
+
+                    // decoration:
+                    //     BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      },
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      style: const TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        hintText: 'Enter your email',
+                        hintStyle:
+                            TextStyle(color: Colors.black.withOpacity(0.7)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide(color: Colors.black, width: 5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 20.h, horizontal: 15.w),
                       ),
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 20.h, horizontal: 15.w),
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      return null;
-                    },
-                    controller: passwordController,
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    style: TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                      hintText: 'Enter your password',
-                      hintStyle:
-                          TextStyle(color: Colors.black.withOpacity(0.7)),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: Colors.teal, width: 2),
+                  Container(
+                    color: Colors.white,
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your password';
+                        }
+                        return null;
+                      },
+                      controller: passwordController,
+                      keyboardType: TextInputType.text,
+                      obscureText: true,
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        hintText: 'Enter your password',
+                        hintStyle:
+                            TextStyle(color: Colors.black.withOpacity(0.7)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide(color: Colors.black, width: 5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 20.h, horizontal: 15.w),
                       ),
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 20.h, horizontal: 15.w),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -199,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 50.h,
                     width: 200.w,
                     isloading: isloading,
-                    color: Colors.teal,
+                    color: Colors.black,
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         login();
@@ -207,19 +220,44 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   SizedBox(height: 20.h),
-                  CustomButton(
-                    text: 'Sign Up',
-                    height: 50.h,
-                    width: 200.w,
-                    isloading: isloading,
-                    color: Colors.teal.withOpacity(.6),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return SignUpScreen();
-                      }));
-                    },
-                  ),
+                  SizedBox(height: 20.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Already have an account?',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      SizedBox(width: 5),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()));
+                        },
+                        child: Text('Sign up',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold)),
+                      )
+                    ],
+                  )
+                  // CustomButton(
+                  //   text: 'Sign Up',
+                  //   height: 50.h,
+                  //   width: 200.w,
+                  //   isloading: isloading,
+                  //   color: Colors.teal.withOpacity(.6),
+                  //   onPressed: () {
+                  //     Navigator.push(context,
+                  //         MaterialPageRoute(builder: (context) {
+                  //       return SignUpScreen();
+                  //     }
+                  //     )
+                  //     );
+                  //   },
+                  // ),
                 ],
               ),
             ),

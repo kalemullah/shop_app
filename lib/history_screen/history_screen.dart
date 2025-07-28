@@ -45,7 +45,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
           return Scaffold(
             appBar: AppBar(
-              title: const Text('History'),
+              backgroundColor: const Color(0xFFFFB91D),
+              title: const Text(
+                'History',
+                style: TextStyle(color: Colors.white),
+              ),
               actions: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),

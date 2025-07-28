@@ -1,151 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/firebase_service/check_auth.dart';
+import 'package:shop_app/screens/auth_screen/log_in_screen.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _opacityAnimation;
-  late Animation<double> _scaleAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      duration: const Duration(seconds: 3),
-      vsync: this,
-    )..forward();
-
-    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
-
-    _scaleAnimation = Tween<double>(begin: 0.5, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
-
-    // Simulate splash screen logic like navigation
-    Future.delayed(const Duration(seconds: 3), () {
-      SplashService().islogin(context);
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          // Background gradient with multiple icons
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.teal.shade300, // First color (teal)
-                  Colors.purple.shade600, // Second color (purple)
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+      backgroundColor: const Color(0xFFFFB91D), // Yellow background
+      body: Center(
+        child:
+            // RotatedBox(
+            //   quarterTurns: -1, // Rotates the screen to match the image
+            //   child:
+            Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // QR Icon
+              Image.asset(
+                'assets/splash.png', // Replace with your actual asset
+                height: 150,
+                width: 150,
               ),
-            ),
-            child: Stack(
-              children: [
-                // Add multiple printer icons in the background
-                Positioned(
-                  top: 50,
-                  left: 30,
-                  child: Opacity(
-                    opacity: 0.1, // Make icons subtle
-                    child: Icon(
-                      Icons.print,
-                      size: 100,
-                      color: Colors.white,
-                    ),
+              const SizedBox(height: 100),
+
+              // Description Text
+              const Text(
+                "Go and enjoy our features for free and\nmake your life easy with us.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Let's Start Button
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                Positioned(
-                  top: 150,
-                  left: 100,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 120,
-                      color: Colors.white,
-                    ),
-                  ),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ));
+                  // Navigate to next screen here
+                },
+                icon: const Icon(Icons.arrow_forward, color: Colors.white),
+                label: const Text(
+                  "Let's Start",
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
-                Positioned(
-                  bottom: 100,
-                  right: 50,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 100,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 200,
-                  left: 80,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 110,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-          // Main content (CircleAvatar and Text)
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ScaleTransition(
-                  scale: _scaleAnimation,
-                  child: FadeTransition(
-                    opacity: _opacityAnimation,
-                    child: CircleAvatar(
-                      radius: 100,
-                      backgroundImage: AssetImage('assets/profile.jpeg'),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                FadeTransition(
-                  opacity: _opacityAnimation,
-                  child: const Text(
-                    "Welcome to MyShop",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontFamily: 'Arial',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

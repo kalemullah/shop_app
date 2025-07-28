@@ -114,67 +114,67 @@ class _SignUpScreenState extends State<SignUpScreen>
         children: [
           // Background gradient with multiple icons
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.teal.shade300, // First color (teal)
-                  Colors.purple.shade600, // Second color (purple)
+                  Color(0xFFFFB91D), // First color (teal)
+                  Color(0xFFFFB91D) // Second color (purple)
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
             ),
-            child: Stack(
+            child: const Stack(
               children: [
                 // Add multiple printer icons in the background
-                Positioned(
-                  top: 50,
-                  left: 30,
-                  child: Opacity(
-                    opacity: 0.1, // Make icons subtle
-                    child: Icon(
-                      Icons.print,
-                      size: 100,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 150,
-                  left: 100,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 120,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 100,
-                  right: 50,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 100,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 200,
-                  left: 80,
-                  child: Opacity(
-                    opacity: 0.1,
-                    child: Icon(
-                      Icons.print,
-                      size: 110,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                // Positioned(
+                //   top: 50,
+                //   left: 30,
+                //   child: Opacity(
+                //     opacity: 0.1, // Make icons subtle
+                //     child: Icon(
+                //       Icons.print,
+                //       size: 100,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   top: 150,
+                //   left: 100,
+                //   child: Opacity(
+                //     opacity: 0.1,
+                //     child: Icon(
+                //       Icons.print,
+                //       size: 120,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: 100,
+                //   right: 50,
+                //   child: Opacity(
+                //     opacity: 0.1,
+                //     child: Icon(
+                //       Icons.print,
+                //       size: 100,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: 200,
+                //   left: 80,
+                //   child: Opacity(
+                //     opacity: 0.1,
+                //     child: Icon(
+                //       Icons.print,
+                //       size: 110,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -208,73 +208,85 @@ class _SignUpScreenState extends State<SignUpScreen>
                       ),
                     ),
                     SizedBox(height: 30.h),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
-                      controller: nameController,
-                      keyboardType: TextInputType.emailAddress,
-                      style: const TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                        hintText: 'Enter your name',
-                        hintStyle:
-                            TextStyle(color: Colors.black.withOpacity(0.7)),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(color: Colors.teal, width: 2),
+                    Container(
+                      color: Colors.white.withOpacity(0.8),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your name';
+                          }
+                          return null;
+                        },
+                        controller: nameController,
+                        keyboardType: TextInputType.emailAddress,
+                        style: const TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          hintText: 'Enter your name',
+                          hintStyle:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 2),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20.h, horizontal: 15.w),
                         ),
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 20.h, horizontal: 15.w),
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        return null;
-                      },
-                      controller: emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      style: TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                        hintText: 'Enter your email',
-                        hintStyle:
-                            TextStyle(color: Colors.black.withOpacity(0.7)),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(color: Colors.teal, width: 2),
+                    Container(
+                      color: Colors.white.withOpacity(0.8),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your email';
+                          }
+                          return null;
+                        },
+                        controller: emailController,
+                        keyboardType: TextInputType.emailAddress,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          hintText: 'Enter your email',
+                          hintStyle:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 5),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20.h, horizontal: 15.w),
                         ),
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 20.h, horizontal: 15.w),
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
-                      controller: passwordController,
-                      keyboardType: TextInputType.text,
-                      obscureText: true,
-                      style: TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                        hintText: 'Enter your password',
-                        hintStyle:
-                            TextStyle(color: Colors.black.withOpacity(0.7)),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(color: Colors.teal, width: 2),
+                    Container(
+                      color: Colors.white.withOpacity(0.8),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        controller: passwordController,
+                        keyboardType: TextInputType.text,
+                        obscureText: true,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          hintText: 'Enter your password',
+                          hintStyle:
+                              TextStyle(color: Colors.black.withOpacity(0.7)),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide:
+                                const BorderSide(color: Colors.black, width: 5),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20.h, horizontal: 15.w),
                         ),
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 20.h, horizontal: 15.w),
                       ),
                     ),
                     SizedBox(height: 20.h),
@@ -283,7 +295,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       height: 50.h,
                       width: 200.w,
                       isloading: isloading,
-                      color: Colors.teal,
+                      color: Colors.black,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           signup();
@@ -334,7 +346,80 @@ class _SignUpScreenState extends State<SignUpScreen>
                                   fontWeight: FontWeight.bold)),
                         )
                       ],
-                    )
+                    ),
+                    // OR Divider
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        children: [
+                          Expanded(child: Divider(color: Colors.white)),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              'Or sign up with',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Expanded(child: Divider(color: Colors.white)),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20.h),
+
+// Social login buttons (UI only)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // Google Button
+                        GestureDetector(
+                          onTap: () {
+                            // Placeholder for Google login
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 25.r,
+                            child: Image.asset(
+                              'assets/google2.png', // Make sure you have this image
+                              height: 30.h,
+                              width: 30.w,
+                            ),
+                          ),
+                        ),
+
+                        // Facebook Button
+                        GestureDetector(
+                          onTap: () {
+                            // Placeholder for Facebook login
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 25.r,
+                            child: Image.asset(
+                              'assets/facebook.jpg', // Make sure you have this image
+                              height: 30.h,
+                              width: 30.w,
+                            ),
+                          ),
+                        ),
+
+                        // Apple Button
+                        GestureDetector(
+                          onTap: () {
+                            // Placeholder for Apple login
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 25.r,
+                            child: Icon(Icons.apple,
+                                size: 30.sp, color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20.h),
                   ],
                 ),
               ),
