@@ -17,7 +17,14 @@ class DataScreen extends StatelessWidget {
       create: (_) => DataScreenProvider(),
       child: Consumer<DataScreenProvider>(
         builder: (context, model, _) => Scaffold(
-          appBar: AppBar(title: const Text("Add Product")),
+          appBar: AppBar(
+            backgroundColor: Colors.black,
+            title: const Text(
+              "Add Product",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          backgroundColor: const Color(0xFFFFB91D),
           body: SingleChildScrollView(
             padding: EdgeInsets.all(20.w),
             child: Column(
@@ -29,12 +36,15 @@ class DataScreen extends StatelessWidget {
                   onTap: model.pickImage,
                 ),
                 SizedBox(height: 20.h),
-                TextFormField(
-                  style: const TextStyle(color: Colors.black),
-                  controller: model.nameController,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter product name',
-                    border: OutlineInputBorder(),
+                Container(
+                  color: Colors.white,
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    controller: model.nameController,
+                    decoration: const InputDecoration(
+                      hintText: 'Enter product name',
+                      border: OutlineInputBorder(),
+                    ),
                   ),
                 ),
                 SizedBox(height: 20.h),
@@ -43,10 +53,10 @@ class DataScreen extends StatelessWidget {
                     String scannedQrCode = data ?? '';
 
                     if (scannedQrCode.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("QR code is missing."),
-                        backgroundColor: Colors.red,
-                      ));
+                      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      //   content: Text("QR code is missing."),
+                      //   backgroundColor: Colors.red,
+                      // ));
                       return;
                     }
 
@@ -125,6 +135,7 @@ class ImagePickerWidget extends StatelessWidget {
         height: 200,
         width: double.infinity,
         decoration: BoxDecoration(
+          color: Colors.white,
           border: Border.all(color: Colors.grey.shade400),
           borderRadius: BorderRadius.circular(12),
         ),

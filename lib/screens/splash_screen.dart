@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
             children: [
               // QR Icon
               Image.asset(
-                'assets/splash.png', // Replace with your actual asset
+                'assets/splash2.png', // Replace with your actual asset
                 height: 150,
                 width: 150,
               ),

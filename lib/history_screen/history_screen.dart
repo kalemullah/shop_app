@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/history_screen/history_prouctcard.dart';
+import 'package:shop_app/screens/home_screen/home.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -45,10 +46,23 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: const Color(0xFFFFB91D),
-              title: const Text(
-                'History',
-                style: TextStyle(color: Colors.white),
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.black,
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
+              ),
+              title: Padding(
+                padding: const EdgeInsets.only(left: 0.0),
+                child: const Text(
+                  'History',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
               actions: [
                 Padding(
@@ -57,12 +71,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     child: Text(
                       'Scan products: ${products.length}',
                       style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ),
                 ),
               ],
             ),
+            backgroundColor: const Color(0xFFFFB91D),
             body: Column(
               children: [
                 Padding(
@@ -74,6 +91,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.search),
                       hintText: 'Search product by name...',
+                      hintStyle: const TextStyle(color: Colors.white),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

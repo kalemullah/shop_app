@@ -171,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintStyle:
                             TextStyle(color: Colors.black.withOpacity(0.7)),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(0),
                           borderSide: BorderSide(color: Colors.black, width: 5),
                         ),
                         contentPadding: EdgeInsets.symmetric(
@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintStyle:
                             TextStyle(color: Colors.black.withOpacity(0.7)),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(0),
                           borderSide: BorderSide(color: Colors.black, width: 5),
                         ),
                         contentPadding: EdgeInsets.symmetric(

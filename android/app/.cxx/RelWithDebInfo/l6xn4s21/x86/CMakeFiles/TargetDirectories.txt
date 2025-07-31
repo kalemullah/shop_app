@@ -1,0 +1,2 @@
+E:/projects/qr code scanner/shop_app/android/app/.cxx/RelWithDebInfo/l6xn4s21/x86/CMakeFiles/edit_cache.dir
+E:/projects/qr code scanner/shop_app/android/app/.cxx/RelWithDebInfo/l6xn4s21/x86/CMakeFiles/rebuild_cache.dir

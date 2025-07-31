@@ -41,6 +41,7 @@ class ProductCard extends StatelessWidget {
         : 'No date';
 
     return Card(
+      color: Colors.black,
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: ListTile(
         // contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -57,16 +58,25 @@ class ProductCard extends StatelessWidget {
                 ),
               )
             : const Icon(Icons.image_not_supported),
-        title: Text(name),
+        title: Text(
+          name,
+          style: TextStyle(color: Colors.white),
+        ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("QR: $qr"),
-            Text("Date: $formattedDate"),
+            Text(
+              "QR: $qr",
+              style: TextStyle(color: Colors.white),
+            ),
+            Text(
+              "Date: $formattedDate",
+              style: TextStyle(color: Colors.white),
+            ),
           ],
         ),
         trailing: IconButton(
-          icon: const Icon(Icons.delete, color: Colors.red),
+          icon: const Icon(Icons.delete, color: const Color(0xFFFFB91D)),
           onPressed: () => _deleteItem(context),
         ),
       ),
